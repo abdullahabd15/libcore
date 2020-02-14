@@ -5,7 +5,6 @@ import android.content.pm.PackageManager
 import android.provider.CallLog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
-import java.lang.Long
 import java.util.*
 
 class AiCallUtil(internal val activity: AppCompatActivity) {
@@ -27,7 +26,7 @@ class AiCallUtil(internal val activity: AppCompatActivity) {
                 val callLogData = CallLogData()
                 callLogData.phoneNumber = cursor.getString(number)
                 val callDate = cursor.getString(date)
-                callLogData.callDateTime = Date(Long.valueOf(callDate))
+                callLogData.callDateTime = Date(callDate.toLong())
                 callLogData.callDurationInSeconds = cursor.getString(duration)
                 val callType = cursor.getString(type)
                 callLogData.callTypeAsInt = Integer.parseInt(callType)
